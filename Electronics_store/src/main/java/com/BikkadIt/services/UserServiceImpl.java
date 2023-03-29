@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public UserDto updateUser(UserDto userDto, Long userId) {
         logger.info("Initiate dao call to update user details with userId:{} ", userId);
-        User user = this.userRpo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found on server" + userId));
+        User user = this.userRpo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found on server:" + userId));
 
         user.setUserName(userDto.getUserName());
         user.setEmail(userDto.getEmail());
@@ -94,18 +94,18 @@ public class UserServiceImpl implements UserServiceI {
 
     @Override
     public UserDto getUserById(Long userId) {
-        logger.info("Initiate dao call to update user details with userId:{} ", userId);
+        logger.info("Initiate dao call to get user details with userId:{} ", userId);
         User user2 = this.userRpo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found on server" + userId));
-        logger.info("Completed dao call to update user details with:{} ", userId);
+        logger.info("Completed dao call to get user details with:{} ", userId);
         return this.UserToDto(user2);
     }
 
 
     @Override
     public UserDto getUserByEmail(String email) {
-        logger.info("Initiate dao call to update user details with email:{} ", email);
+        logger.info("Initiate dao call to get user details with email:{} ", email);
         User email1 = this.userRpo.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("Email not found on server" + email));
-        logger.info("Completed dao call to update user details with:{} ", email);
+        logger.info("Completed dao call to get user details with email:{} ", email);
         return this.UserToDto(email1);
     }
 
