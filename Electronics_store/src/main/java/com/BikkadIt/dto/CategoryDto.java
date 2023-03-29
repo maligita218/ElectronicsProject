@@ -18,6 +18,8 @@ public class CategoryDto extends CategoryBaseEntityDto {
     private Long categoryId;
     @Size(min = 5, max = 20, message = "Please Enter Proper Title!!")
     private String categoryTitle;
-    @NotBlank(message = "Write Description Here!!")
+    @NotBlank(message = "Description Required!!")
     private String CategoryDescription;
+    @NotBlank(message = "Image Required!!")
+    private String CoverImage;
 }

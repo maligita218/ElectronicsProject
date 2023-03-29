@@ -17,8 +17,10 @@ public class Category extends CategoryBaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
-    @Column(name = "Title")
+    @Column(name = "Cat_Title")
     private String categoryTitle;
-    @Column(name = "Description")
+    @Column(name = "Cat_Description")
     private String CategoryDescription;
+    @Column(name="Cat_Image")
+    private String CoverImage;
 }

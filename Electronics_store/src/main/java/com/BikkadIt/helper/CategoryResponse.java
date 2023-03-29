@@ -1,5 +1,6 @@
 package com.BikkadIt.helper;
 
+import com.BikkadIt.dto.CategoryDto;
 import com.BikkadIt.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,11 +15,13 @@ import java.util.List;
 @NoArgsConstructor
 public class CategoryResponse {
 
-    private List<UserDto> content;
+    private List<CategoryDto> content;
     private Integer pageNumber;
     private Integer pageSize;
 
     private Long totalElements;
 
     private Integer totalPages;
+
+
 }
