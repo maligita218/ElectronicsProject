@@ -121,7 +121,6 @@ public class UserController {
         logger.info("User image name:{}", user.getImage());
         InputStream resource = fileService.getResource(imageUploadPath, user.getImage());
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
-
         StreamUtils.copy(resource, response.getOutputStream());
     }
 }
