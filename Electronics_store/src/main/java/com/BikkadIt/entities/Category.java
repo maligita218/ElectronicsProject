@@ -20,7 +20,7 @@ public class Category extends CategoryBaseEntity{
     @Column(name = "Cat_Title")
     private String categoryTitle;
     @Column(name = "Cat_Description")
-    private String CategoryDescription;
+    private String categoryDescription;
     @Column(name="Cat_Image")
-    private String CoverImage;
+    private String coverImage;
 }

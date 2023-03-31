@@ -98,7 +98,9 @@ public class CategoryServiceImpl implements CategoryServiceI {
      */
     @Override
     public CategoryResponse getAllCategory(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+
         logger.info("Initiate dao call to get all category details");
+
         Sort sort = null;
         if (sortDir.equalsIgnoreCase("asc")) {
             sort = Sort.by(sortBy).ascending();
@@ -120,6 +122,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
         categoryResponse.setTotalPages(categoryPage.getTotalPages());
         categoryResponse.setTotalElements(categoryPage.getTotalElements());
         categoryResponse.setContent(categorydto);
+
         logger.info("Completed dao call to get all category details");
         return categoryResponse;
     }

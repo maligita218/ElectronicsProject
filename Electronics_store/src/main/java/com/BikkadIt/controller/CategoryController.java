@@ -1,6 +1,7 @@
 package com.BikkadIt.controller;
 
 import com.BikkadIt.dto.CategoryDto;
+import com.BikkadIt.dto.UserDto;
 import com.BikkadIt.helper.ApiResponse;
 import com.BikkadIt.helper.CategoryResponse;
 import com.BikkadIt.helper.ImageResponse;
@@ -12,13 +13,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.awt.*;
 import java.io.IOException;
+import java.io.InputStream;
 
 @RestController
 @RequestMapping("/category")
@@ -28,7 +33,7 @@ public class CategoryController {
     @Autowired
     private FileService fileService;
 
-    @Value("${user.profile.image.path}")
+    @Value("${category.profile.image.path}")
     private String imageUploadPath;
     Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
@@ -61,11 +66,11 @@ public class CategoryController {
 
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<CategoryResponse> getAllCategory(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-            @RequestParam(value = "sortBy", defaultValue = "userId", required = false) String sortBy,
+            @RequestParam(value = "sortBy", defaultValue = "categoryId", required = false) String sortBy,
             @RequestParam(value = "sortDir", defaultValue = "asc", required = false) String sortDir) {
 
         logger.info("Initiating Request to get all users details");
@@ -81,7 +86,7 @@ public class CategoryController {
 
     //upload Category Image
     @PostMapping("/image/{categoryId}")
-    public ResponseEntity<ImageResponse> uploadImage(@RequestParam("coverimage") MultipartFile image, @PathVariable Long categoryId) throws IOException {
+    public ResponseEntity<ImageResponse> uploadImage(@RequestParam("coverImage") MultipartFile image, @PathVariable Long categoryId) throws IOException {
 
         String imagename = fileService.uploadFile(image, imageUploadPath);
 
@@ -92,4 +97,13 @@ public class CategoryController {
         return new ResponseEntity<>(imageResponse,HttpStatus.CREATED);
     }
 
+    @GetMapping("/image/{categoryId}")
+    public void serveUserImage(@PathVariable Long categoryId, HttpServletResponse response) throws IOException {
+
+        CategoryDto categoryDto = categoryServiceI.getCategoryById(categoryId);
+        logger.info("User image name:{}", categoryDto.getCoverImage());
+        InputStream resource = fileService.getResource(imageUploadPath, categoryDto.getCoverImage());
+        response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+        StreamUtils.copy(resource, response.getOutputStream());
+    }
 }
