@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Product extends ProductBaseEntity {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
