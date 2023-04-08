@@ -24,6 +24,12 @@ import javax.validation.Valid;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
+/**
+ * @author Gitanjali
+ * @apiNote This api is related to save retrieve delete records
+ *
+ *
+ */
 
 @RestController
 @RequestMapping("/category")
@@ -37,6 +43,12 @@ public class CategoryController {
     private String imageUploadPath;
     Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
+    /**
+     * @author Gitanjali
+     * @apiNote This Api is to save category data
+     * @param categoryDto
+     * @return
+     */
     //create category
     @PostMapping("/")
     public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
@@ -46,6 +58,13 @@ public class CategoryController {
         return new ResponseEntity<>(categoryDto1, HttpStatus.CREATED);
     }
 
+    /**
+     * @apiNote This Api is to update category details
+     * @param categoryDto
+     * @param categoryId
+     * @return
+     */
+
     @PutMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto, @PathVariable Long categoryId) {
         logger.info("Initiating the request to update the category with categoryId:{}", categoryId);
@@ -54,6 +73,11 @@ public class CategoryController {
         return new ResponseEntity<>(categoryDto1, HttpStatus.ACCEPTED);
     }
 
+    /**
+     * @apiNote This Api for delete the category
+     * @param categoryId
+     *
+     */
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<?> deleteCategory(@PathVariable Long categoryId) {
         logger.info("Initiating request to delete user details with categoryId:{} ", categoryId);
@@ -65,7 +89,10 @@ public class CategoryController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
 
     }
-
+    /**
+     * @apiNote This Api is for getAll category details
+     * @return
+     */
     @GetMapping()
     public ResponseEntity<CategoryResponse> getAllCategory(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
@@ -77,13 +104,26 @@ public class CategoryController {
         return new ResponseEntity<CategoryResponse>(this.categoryServiceI.getAllCategory(pageNumber, pageSize, sortBy, sortDir), HttpStatus.OK);
     }
 
+    /**
+     * @apiNote This Api is to get single category details
+     * @param categoryId
+     * @return
+     *
+     */
+
     @GetMapping("/id/{categoryId}")
     public ResponseEntity<CategoryDto> getSingleCategoryById(@PathVariable Long categoryId) {
 
         logger.info("Initiating Request to get single category details");
         return new ResponseEntity<>(this.categoryServiceI.getCategoryById(categoryId), HttpStatus.OK);
     }
-
+    /**
+     * @apiNote This Api is to upload image
+     * @param categoryId
+     * @param image
+     * @return
+     *
+     */
     //upload Category Image
     @PostMapping("/image/{categoryId}")
     public ResponseEntity<ImageResponse> uploadImage(@RequestParam("coverImage") MultipartFile image, @PathVariable Long categoryId) throws IOException {
@@ -97,6 +137,13 @@ public class CategoryController {
         return new ResponseEntity<>(imageResponse,HttpStatus.CREATED);
     }
 
+    /**
+     * @apiNote This Api is to serve image
+     * @param response
+     * @param categoryId
+     * @return
+     *
+     */
     @GetMapping("/image/{categoryId}")
     public void serveUserImage(@PathVariable Long categoryId, HttpServletResponse response) throws IOException {
 
