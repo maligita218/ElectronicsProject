@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -19,10 +21,11 @@ public class ProductDto {
     private String title;
     @NotBlank(message = "Description Required!!")
     private String description;
-    @NotBlank(message = "Enter Price!!")
     private int price;
-    @NotBlank(message = "Please tell about discount!!")
     private int discountedPrice;
-    @NotBlank(message = "Quantity Required!!")
     private int quantity;
+    private Date addedDate;
+    private boolean islive;
+    private boolean stock;
+
 }
