@@ -1,13 +1,13 @@
 package com.BikkadIt.services;
 
 import com.BikkadIt.dto.ProductDto;
+import com.BikkadIt.helper.ProductResponse;
 import org.apache.tomcat.jni.Proc;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
 
-@Service
 public interface ProductService {
     //create
     ProductDto createProduct(ProductDto productDto);
@@ -19,10 +19,16 @@ public interface ProductService {
     public void deleteProduct(Long productId);
 
     //get all product
-    List<ProductDto> getAllProduct();
+    ProductResponse getAllProduct(int pageNumber, int pageSize);
 
-    //get by Id
+    //get single
     ProductDto getProductById(Long productId);
+
+    //get all:live
+    ProductResponse getAllLive(int pageNumber,int pageSize);
+
+    //serach product
+ ProductResponse serachByTitle(String subTitle,int pageNumber,int pageSize);
 
 
 }
