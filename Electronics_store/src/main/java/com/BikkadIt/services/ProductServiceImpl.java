@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
         product.setQuantity(productDto.getQuantity());
         product.setPrice(productDto.getPrice());
         product.setDiscountedPrice(productDto.getDiscountedPrice());
-        product.setIslive(productDto.isIslive());
+        product.setLive(productDto.isLive());
         product.setStock(productDto.isStock());
 
         Product updateProduct = this.productRepo.save(product);
