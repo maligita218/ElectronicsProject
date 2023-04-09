@@ -1,21 +1,21 @@
 package com.BikkadIt.controller;
 
 import com.BikkadIt.dto.ProductDto;
-import com.BikkadIt.entities.Product;
+
 import com.BikkadIt.helper.ApiResponse;
 import com.BikkadIt.helper.ProductResponse;
-import com.BikkadIt.helper.UserResponse;
+
 import com.BikkadIt.services.ProductService;
-import lombok.Getter;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
+
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
+
 
 @RestController
 @Slf4j
@@ -91,7 +91,7 @@ public class ProductController {
      * @return
      * @apiNote This Api is to get single product details
      */
-    //getProduct by Id
+    //getProduct by id
     @GetMapping("/{productId}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long productId) {
         log.info("Initiating request to get product by productId:{} ", productId);
@@ -99,4 +99,35 @@ public class ProductController {
         log.info("Complete request to get product by productId:{} ", productId);
         return new ResponseEntity<>(productById, HttpStatus.OK);
     }
+    /**
+     *
+     * @return
+     * @apiNote This Api is to get live product
+     */
+    //getProduct live
+    @GetMapping("/live")
+    public ResponseEntity<ProductResponse> getAllLive(
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize) {
+
+        log.info("Initiating Request to get all products details");
+        return new ResponseEntity<>(this.productService.getAllLive(pageNumber, pageSize), HttpStatus.OK);
+    }
+
+    /**
+     *
+     * @return
+     * @apiNote This Api is to get live product
+     */
+    //getProduct live
+    @GetMapping("/search/{query}")
+    public ResponseEntity<ProductResponse> searchProduct(@PathVariable String query,
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize) {
+
+        log.info("Initiating Request to get all products details");
+        return new ResponseEntity<>(this.productService.serachByTitle(query,pageNumber, pageSize), HttpStatus.OK);
+    }
+
+
 }
