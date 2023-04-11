@@ -1,0 +1,21 @@
+04:11 09:49:17.022 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -
+
+                Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+04:11 09:49:17.023 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -
+
+                For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+04:11 09:49:24.178 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -
+
+                Tomcat initialized with port(s): 9090 (http)
+04:11 09:49:24.540 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -
+
+                Root WebApplicationContext: initialization completed in 7515 ms
+04:11 09:49:30.319 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -
+
+                spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04:11 09:49:31.220 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -
+
+                LiveReload server is running on port 35729
+04:11 09:49:31.301 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -
+
+                Tomcat started on port(s): 9090 (http) with context path ''
