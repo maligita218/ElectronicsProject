@@ -90,7 +90,7 @@ public class ProductServiceImpl implements ProductService {
         PageRequest p = PageRequest.of(pageNumber, pageSize);
         Page<Product> productPage = this.productRepo.findAll(p);
         List<Product> allproduct = productPage.getContent();
-        List<ProductDto> productDtos = allproduct.stream().map(product -> this.modelMapper.map(allproduct, ProductDto.class)).collect(Collectors.toList());
+        List<ProductDto> productDtos = allproduct.stream().map(product -> this.modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
 
         ProductResponse response = new ProductResponse();
 
@@ -122,7 +122,7 @@ public class ProductServiceImpl implements ProductService {
         PageRequest p = PageRequest.of(pageNumber, pageSize);
         Page<Product> productPage = this.productRepo.findByLiveTrue(p);
         List<Product> allproduct = productPage.getContent();
-        List<ProductDto> productDtos = allproduct.stream().map(product -> this.modelMapper.map(allproduct, ProductDto.class)).collect(Collectors.toList());
+        List<ProductDto> productDtos = allproduct.stream().map(product -> this.modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
 
         ProductResponse response = new ProductResponse();
 
@@ -139,7 +139,7 @@ public class ProductServiceImpl implements ProductService {
         PageRequest p = PageRequest.of(pageNumber, pageSize);
         Page<Product> productPage = this.productRepo.findByTitleContaining(subTitle,p);
         List<Product> allproduct = productPage.getContent();
-        List<ProductDto> productDtos = allproduct.stream().map(product -> this.modelMapper.map(allproduct, ProductDto.class)).collect(Collectors.toList());
+        List<ProductDto> productDtos = allproduct.stream().map(product -> this.modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
 
         ProductResponse response = new ProductResponse();
 

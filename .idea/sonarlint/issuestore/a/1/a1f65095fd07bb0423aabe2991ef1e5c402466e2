@@ -1,0 +1,16 @@
+
+t
+java:S2293h"YReplace the type specification in this constructor call with the diamond operator ("<>").(ûËÁ½úÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“ËåÒıÿÿÿÿ
+A
+java:S1452R"&Remove usage of generic wildcard type.(Ìàüûÿÿÿÿ
+[
+java:S1854‡"?Remove this useless assignment to local variable "categoryDto".(ÊÕŞ–ÿÿÿÿÿ
+L
+java:S1481‡"0Remove this unused "categoryDto" local variable.(ÊÕŞ–ÿÿÿÿÿ
+K
+java:S1128"5Remove this unused import 'com.BikkadIt.dto.UserDto'.(Š¿Å
+X
+java:S1128"=Remove this unused import 'com.BikkadIt.helper.UserResponse'.(Ì›û¯şÿÿÿÿ
+;
+java:S1128"%Remove this unused import 'java.awt'.(ï´µ©

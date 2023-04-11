@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -24,7 +25,7 @@ public class ProductDto {
     private int price;
     private int discountedPrice;
     private int quantity;
-    private Date addedDate;
+    private LocalDateTime addedDate;
     private boolean live;
     private boolean stock;
 

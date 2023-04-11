@@ -1,0 +1,10 @@
+
+
+java:S11921"]Define a constant instead of duplicating this literal "Product not found on server:" 3 times.(¶®Ì“úÿÿÿÿ8ýÕ¦ˆö0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÿ·ú„þÿÿÿÿ8ÿÕ¦ˆö0
+t
+java:S6204]"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Ë‰›Íýÿÿÿÿ8£Ö¦ˆö0
+t
+java:S6204}"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Ë‰›Íýÿÿÿÿ8ªÖ¦ˆö0
+u
+java:S6204Ž"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Ë‰›Íýÿÿÿÿ8­Ö¦ˆö0

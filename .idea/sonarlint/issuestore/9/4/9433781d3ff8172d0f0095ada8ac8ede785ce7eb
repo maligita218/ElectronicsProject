@@ -1,0 +1,14 @@
+
+o
+java:S2293Q"YReplace the type specification in this constructor call with the diamond operator ("<>").(£ÿº¹
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“ËåÒıÿÿÿÿ
+<
+java:S1452>"&Remove usage of generic wildcard type.(ˆã×“
+V
+java:S1854m";Remove this useless assignment to local variable "userDto".(ƒì´ÿÿÿÿÿ
+G
+java:S1481m",Remove this unused "userDto" local variable.(ƒì´ÿÿÿÿÿ
+U
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿ
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ

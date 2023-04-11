@@ -1,0 +1,12 @@
+
+r
+java:S1488r"\Immediately return this expression instead of assigning it to the temporary variable "user".(ÌŽ Ü
+u
+java:S1488y"_Immediately return this expression instead of assigning it to the temporary variable "userDto".(ØÖËö
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÿ·ú„þÿÿÿÿ
+g
+java:S6204S"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÃÈÞ 
+G
+java:S1611S"2Remove the parentheses around the "user" parameter(ÃÈÞ 
+h	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä¿ŠŠýÿÿÿÿ
+h	java:S100w"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÿŽ¼üÿÿÿÿ

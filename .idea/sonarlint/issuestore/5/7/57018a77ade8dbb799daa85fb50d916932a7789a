@@ -1,0 +1,6 @@
+
+t
+java:S11925"^Define a constant instead of duplicating this literal "Category not found on server:" 3 times.(®˜‚
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÿ·ú„şÿÿÿÿ
+m
+java:S6204t"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(íÈªüÿÿÿÿ

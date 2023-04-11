@@ -1,12 +1,15 @@
 package com.BikkadIt.entities;
 
+import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -30,11 +33,13 @@ public class Product {
 
     @Column(name = "Quantity")
     private int quantity;
-    private Date addedDate;
-    @Column(name = "is_live")
-    private boolean islive;
+    @CreationTimestamp
+    @Column(name = "added_date", nullable = false, updatable = false)
+    private LocalDateTime addedDate;
+    @Column(name = "live")
+    private boolean live;
 
-    @Column(name = "Stoke")
+    @Column(name = "Stock")
     private boolean stock;
 
 
