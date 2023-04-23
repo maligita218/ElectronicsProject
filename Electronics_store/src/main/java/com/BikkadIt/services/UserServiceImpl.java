@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserServiceI {
     public UserDto createUser(UserDto userDto) {
         logger.info("Initiate dao call to save user details ");
         User user = this.DtoToUSer(userDto);
-        user.setIsActive('Y');
         User saveuser = this.userRpo.save(user);
+        user.setIsActive('Y');
         logger.info("Complete dao call to save user details ");
         return this.UserToDto(saveuser);
     }
@@ -60,9 +60,9 @@ public class UserServiceImpl implements UserServiceI {
     public void deleteUser(Long userId) {
         logger.info("Initiate dao call to delete user details with userId:{} ", userId);
         User user1 = this.userRpo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("AppConstants.Not_Found"));
-        user1.setIsActive('N');
+      //  user1.setIsActive('N');
         logger.info("Completed dao call to delete user details with userId:{} ", userId);
-        this.userRpo.save(user1);
+        this.userRpo.delete(user1);
 
     }
 
